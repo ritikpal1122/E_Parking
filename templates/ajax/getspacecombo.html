@@ -1,0 +1,8 @@
+<select class="form-control" id="selspace">
+    <option value="select">-Select Space-</option>
+    {% for i in ob %}
+    <option value="{{i.id}}">
+        {{i.SpaceName}}
+    </option>
+    {% endfor %}
+</select>

@@ -1,0 +1,10 @@
+<table class="table table-stripped">
+    {% for i in ob %}
+    <tr>
+        <td>{{i.SpaceName}}</td>
+        <td>{{i.Description}}</td>
+        <td class="text-success">{{i.Status}}</td>
+        <td><a href="/bookspace/{{i.id}}" target="_blank"><button class="btn btn-warning" onclick="BookSpace('{{i.id}}')">Book</button></a></td>
+    </tr>
+    {% endfor %}
+</table>

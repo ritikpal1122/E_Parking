@@ -1,0 +1,8 @@
+<select onchange="LoadSpace(this.value)" class="form-control" id="selpark">
+    <option value="select">-Select Park-</option>
+    {% for i in ob %}
+    <option value="{{i.id}}">
+        {{i.ParkingName}}
+    </option>
+    {% endfor %}
+</table>

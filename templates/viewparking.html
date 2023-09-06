@@ -1,0 +1,72 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+<br>
+
+<script type="text/javascript">
+  function LoadPark(x)
+  {
+    $.ajax({
+      method:"post",
+      url: "/parkbyloc/",
+      data:{'csrfmiddlewaretoken':'{{csrf_token}}','lid':x},
+      success:function(result){
+        $("#divpark").html(result);
+      }
+    })
+  }
+  function LoadSpace(x)
+  {
+    $.ajax({
+      method:"post",
+      url: "/viewspace/",
+      data:{'csrfmiddlewaretoken':'{{csrf_token}}','pid':x},
+      success:function(result){
+        $("#divspace").html(result);
+      }
+    })
+  }
+  
+</script>
+
+    
+></div>
+    
+
+     <br>
+     <br> 
+  <div class="bg-image p-5 text-center shadow-1-strong rounded mb-5 text-white"
+  style="background-image: url('https://unsplash.com/photos/hmGwrYnr0VM');"
+   class="container-fluid text-center mt-5">
+    
+    
+
+    <h1 class="text-danger">Search Parking</h1>
+    <div class="row text-center">
+
+<center>
+      <div class="col-md-4 ">
+        <div class="form-group text-center">
+          <label >Select Location</label>
+          <select onchange="LoadPark(this.value)" class="form-control">
+            <option value="select">-Select-</option>
+            
+            {% for i in ob %}
+              <option value="{{i.id}}">{{i.LocationName}}</option>
+            {% endfor %}
+          </select>
+        </div>
+      </center>
+
+        <div id="divpark"></div>
+      </div>
+      <div class="col-md-8">
+        <div id="divspace"></div>
+      
+      </div>
+  
+    </div>
+  </div>
+{% endblock %}

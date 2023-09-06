@@ -1,0 +1,33 @@
+{% extends 'master.html' %}
+{% load static %}
+{% block content %}
+  <img src="{% static 'images/parkkk.jpg' %}" style="height:400px" class="d-block w-100">
+      
+  <div class="container-fluid text-center">
+    <h1 class="text-danger">Your Booking Info</h1>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>SNo</th> 
+          <th>Parkning Name</th> 
+          <th>Space Name</th> 
+          <th>Booking Date</th> 
+          <th>Booking Time</th>
+          <th>Status</th>           
+        </tr>
+      </thead>
+      <tbody>
+        {% for i in ob %}
+          <tr>
+            <td>{{forloop.counter}}</td>
+            <td>{{i.ParkingName}}</td>
+            <td>{{i.SpaceName}}</td>
+            <td>{{i.BookDate}}</td>
+            <td>{{i.BookTime}}</td>
+            <td>Booked</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}
